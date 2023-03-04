@@ -27,6 +27,7 @@ public class VehicleRegistry {
         System.out.println("owners:");
         System.out.println(owners.get(new LicensePlate("FI", "ABC-123")));
         System.out.println(owners.get(new LicensePlate("D", "B WQ-431")));
+
         // if the hasCode-method hasn't been overwritten, the owners won't be found
     }
 }
@@ -90,5 +91,34 @@ class VehicleRegister{
             }
         }
         return false;
+    }
+    public String get(LicensePlate licensePlate){
+        return carRegister.getOrDefault(licensePlate,null);
+    }
+
+    public boolean remove(LicensePlate licensePlate){
+       String value = carRegister.remove(licensePlate);
+
+       if(value != null){
+           return true;
+       }else{
+           return false;
+       }
+    }
+
+    public void printLicensePlates(){
+        for(LicensePlate l:carRegister.keySet()){
+            System.out.println(l);
+        }
+    }
+
+    public void printOwners(){
+        ArrayList<String> owners = new ArrayList<>();
+        for(String owner: carRegister.values()){
+            if(!(owners.contains(owner))){
+                System.out.println(owner);
+                owners.add(owner);
+            }
+        }
     }
 }
