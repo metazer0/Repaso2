@@ -4,7 +4,6 @@ public class Warehouse {
 
     public Warehouse(double capacity){
         this.capacity = capacity;
-        this.balance = 0;
     }
 
     public double getBalance(){
@@ -46,6 +45,6 @@ public class Warehouse {
 
     @Override
     public String toString() {
-        return "balance = "+this.balance+", space left "+this.howMuchSpaceLeft();
+        return "balance = "+this.getBalance()+", space left "+this.howMuchSpaceLeft();
     }
 }
